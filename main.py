@@ -14,6 +14,7 @@ action = int(input(
     3. Make a file in current directory
     4. Remove a folder in current directory
     5. Close a port
+    6. Get a website domain info
 """
 ))
 
@@ -58,6 +59,13 @@ def close_port():
     except Exception as e:
         return f"An error occurred: {e}"
 
+def whois():
+    link = str(input("Please enter a link of any website: "))
+    try:
+        os.system(f"whois {link}")
+    except Exception as e:
+        return f"An error occurred: {e}"
+
 if action == 1:
     print(make_dir())
 elif action == 2:
@@ -68,5 +76,7 @@ elif action == 4:
     print(remove_file())
 elif action == 5:
     print(close_port())
+elif action == 6:
+    print(whois())
 else:
     print(f"Please choose an option between 1 and 5")
